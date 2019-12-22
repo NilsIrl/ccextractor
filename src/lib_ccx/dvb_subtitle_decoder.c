@@ -1846,7 +1846,7 @@ int dvbsub_decode(struct encoder_ctx *enc_ctx, struct lib_cc_decode *dec_ctx, co
 		got_segment |= 16;
 	}
 end:
-	if ( ret >= 0 )
+	if (ret >= 0)
 		ret = p - buf;
 
 	return ret;
