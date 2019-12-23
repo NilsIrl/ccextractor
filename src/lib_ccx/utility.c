@@ -297,7 +297,7 @@ void dbg_print(LLONG mask, const char *fmt, ...)
 {
 	va_list args;
 	LLONG t;
-	if (!ccx_options.messages_target)
+	if (!ccx_options.messages_target) // ccx_options.message_target == 0 return without doing anything
 		return;
 	t = temp_debug ? (ccx_options.debug_mask_on_debug | ccx_options.debug_mask) : ccx_options.debug_mask; // Mask override?
 
