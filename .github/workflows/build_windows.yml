@@ -2,7 +2,6 @@ name: Build CCExtractor on Windows
 
 on:
   push:
-    branches: master
     paths:
     - '.github/workflows/build_windows.yml'
     - '**.c'
@@ -22,13 +21,11 @@ jobs:
     steps:
     - name: Check out repository
       uses: actions/checkout@v1
-    - name: Setup MSBuild.exe
-      uses: warrenbuckley/Setup-MSBuild@v1
     - name: build Release
-      run: msbuild ccextractor.sln /p:Configuration=Release
+      run: "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe" ccextractor.sln /p:Configuration=Release
       working-directory: ./windows
     - name: build Debug
-      run: msbuild ccextractor.sln /p:Configuration=Debug
+      run: "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe" ccextractor.sln /p:Configuration=Debug
       working-directory: ./windows
     - name: Prepare artifacts
       run: mkdir ./windows/artifacts
