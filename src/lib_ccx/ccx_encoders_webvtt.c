@@ -205,9 +205,6 @@ int write_stringz_as_webvtt(char *string, struct encoder_ctx *context, LLONG ms_
 
 void write_webvtt_header(struct encoder_ctx *context)
 {
-	if (context->wrote_webvtt_header) // Already done
-		return;
-
 	if (context->timing->sync_pts2fts_set)
 	{
 		char header_string[200];
@@ -259,8 +256,6 @@ void write_webvtt_header(struct encoder_ctx *context)
 		write(context->out->fh, "##\n", 3);
 		write(context->out->fh, context->encoded_crlf, context->encoded_crlf_length);
 	}
-
-	context->wrote_webvtt_header = 1; // Do it even if couldn't write the header, because it won't be possible anyway
 }
 
 

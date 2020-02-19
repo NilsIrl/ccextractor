@@ -60,8 +60,6 @@ struct encoder_ctx
 	/* keep count of CEA-708 subtitle*/
 	unsigned int cea_708_counter;
 
-	/* Did we write the WebVTT header already? */
-	unsigned int wrote_webvtt_header;
 	char wrote_ccd_channel_header;
 
 	/* Input outputs */

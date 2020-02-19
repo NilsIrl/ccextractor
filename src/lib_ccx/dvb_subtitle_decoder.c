@@ -1694,9 +1694,6 @@ void dvbsub_handle_display_segment(struct encoder_ctx *enc_ctx,
 		enc_ctx->srt_counter = enc_ctx->prev->srt_counter; //for dvb subs we need to update the current srt counter because we always encode the previous subtitle (and the counter is increased for the previous context)
 		enc_ctx->prev_start = enc_ctx->prev->prev_start;
 		sub->prev->got_output = 0;
-		if (enc_ctx->write_format == CCX_OF_WEBVTT) {	// we already wrote header, but since we encoded last sub, we must prevent multiple headers in future
-			enc_ctx->wrote_webvtt_header = 1;
-		}
 	}
 	/* copy previous encoder context*/
 	free_encoder_context(enc_ctx->prev);
