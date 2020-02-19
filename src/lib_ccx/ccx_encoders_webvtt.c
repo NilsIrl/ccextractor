@@ -280,8 +280,6 @@ int write_cc_bitmap_as_webvtt(struct cc_subtitle *sub, struct encoder_ctx *conte
 	if (sub->nb_data == 0)
 		return 0;
 
-	write_webvtt_header(context);
-
 	if (sub->flags & SUB_EOD_MARKER)
 		context->prev_start = sub->start_time;
 
@@ -417,8 +415,6 @@ int write_cc_buffer_as_webvtt(struct eia608_screen *data, struct encoder_ctx *co
 	}
 	if (empty_buf) // Prevent writing empty screens. Not needed in .vtt
 		return 0;
-
-	write_webvtt_header(context);
 
 	millis_to_time(data->start_time, &h1, &m1, &s1, &ms1);
 	millis_to_time(data->end_time - 1, &h2, &m2, &s2, &ms2); // -1 To prevent overlapping with next line.

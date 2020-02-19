@@ -1161,6 +1161,8 @@ int general_loop(struct lib_ccx_ctx *ctx)
 
 	struct encoder_ctx *enc_ctx = update_encoder_list(ctx);
 
+	write_webvtt_header(enc_ctx);
+
 	list_for_each_entry(dec_ctx, &ctx->dec_ctx_head, list, struct lib_cc_decode)
 	{
 
