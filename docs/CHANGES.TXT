@@ -4,7 +4,7 @@
 - New: Added support to output captions to MCC file (#733).
 - New: Add support for censoring words ("Kid Friendly") (#1139)
 - New: Extend support of capitalization for all BITMAP and 608 subtitles (#1214)
-- New: Added an option to disable timestamps for WebVTT (In response to issue #1127)
+- Fix: Always write X-TIMESTAMP-MAP for WebVTT (#1127)
 - Fix: Change inet_ntop to inet_ntoa for Windows XP compatibility
 - Fix: Added italics, underline, and color rendering support for -out=spupng with EIA608/teletext
 - Fix: ccx_demuxer_mxf.c: Parse framerate from MXF captions to fix caption timings.
